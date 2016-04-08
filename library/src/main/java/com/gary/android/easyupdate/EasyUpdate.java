@@ -12,13 +12,17 @@ import java.util.HashMap;
 public final class EasyUpdate {
 
     /** 客户端最近一次检查更新时间 */
-    private static final String LATEST_CLIENT_CHECKUPDATE_TIME = "ab_last_client_checkupdate_time";
+    private static final String LATEST_CLIENT_CHECKUPDATE_TIME = "easyupdate_last_client_checkupdate_time";
 
     private static final HashMap<String, EasyUpdatePlugin> pluginMap = new HashMap<>();
 
     // 每次检查更新的间隔时间
     private static long sUpdateCheckDuration = 1000 * 60 * 60 * 24;
 
+    /**
+     * 设置检查更新间隔时间，默认24小时
+     * @param duration 单位：毫秒
+     */
     public static void setUpdateCheckDuration(long duration) {
         sUpdateCheckDuration = duration;
     }

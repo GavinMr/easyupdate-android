@@ -3,7 +3,43 @@ EasyUpdate（Android）帮助开发者将移动终端上的应用升级到最新
 
 EasyUpdate 提供多个检查更新插件，开发者可根据本身需求进行集成。不同的检查更新插件会对不同的渠道提高新增激活，更新激活（应用市场的应用下载量）。
 
-## 集成检查更新插件
+## 快速开始
+
+
+### 注册需要使用的检查更新插件
+
+```
+EasyUpdate.registerUpdatePlugin(new UmengUpdatePlugin());
+```
+
+注意：使用不同的更新插件，需要进行相应的插件设置
+
+### 静默更新
+如果处于wifi环境检测更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。
+
+```
+EasyUpdate.silentUpdate(v.getContext(), UmengUpdatePlugin.PLUGIN_ID);
+```
+
+### 检查更新
+检查是否有新版本，会判断上次检查更新时间，未到设定日期不会联网检查。
+
+```
+
+```
+
+### 自定义功能
+#### 自定义检查更新插件
+实现 com.gary.android.easyupdate.EasyUpdatePlugin 接口，注册到EasyUpdate即可。
+
+### 设置检查更新间隔
+由于不需要用户短时间内每次进入应用都检查更新，可以设置检查更新间隔时间，在间隔时间内不检查更新。默认24小时。
+
+```
+EasyUpdate.setUpdateCheckDuration(毫秒数);
+```
+
+## 配置更新插件
 
 ### 友盟
 
@@ -24,6 +60,9 @@ http://www.umeng.com/
 
 ### 百度
 http://app.baidu.com/
+
+#### 配置
+
 
 
 ## License
