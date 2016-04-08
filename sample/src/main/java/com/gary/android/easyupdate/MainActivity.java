@@ -14,12 +14,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EasyUpdate.registerUpdatePlugin(new UmengUpdatePlugin());
+        EasyUpdateConfig config = EasyUpdateConfig.newBuilder()
+                                        .setDeltaUpdate(false)
+                                        .setUpdateOnlyWifi(true)
+                                        .setUpdatePlugin(new UmengUpdatePlugin())
+                                        .build();
+
+        EasyUpdate.initialize(config);
 
         findViewById(R.id.umeng).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EasyUpdate.silentUpdate(v.getContext(), UmengUpdatePlugin.PLUGIN_ID);
+                EasyUpdate.silentUpdate(v.getContext());
             }
         });
     }

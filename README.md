@@ -3,22 +3,25 @@ EasyUpdate（Android）帮助开发者将移动终端上的应用升级到最新
 
 EasyUpdate 提供多个检查更新插件，开发者可根据本身需求进行集成。不同的检查更新插件会对不同的渠道提高新增激活，更新激活（应用市场的应用下载量）。
 
-## 快速开始
+## 开始使用EasyUpdate
 
-
-### 注册需要使用的检查更新插件
+在 Application 初始化时，或在应用调用 检查更新 之前，进行初始化：
 
 ```
-EasyUpdate.registerUpdatePlugin(new UmengUpdatePlugin());
-```
+EasyUpdateConfig config = EasyUpdateConfig.newBuilder()
+                                        .setDeltaUpdate(false) // 是否开启增量更新，默认false
+                                        .setUpdateOnlyWifi(true) // 是否仅在WIFI环境下检查更新, 默认true
+                                        .setUpdatePlugin(new UmengUpdatePlugin()) // 设置检查更新使用的插件，必须设置
+                                        .build();
+EasyUpdate.initialize(config);
 
-注意：使用不同的更新插件，需要进行相应的插件设置
+```
 
 ### 静默更新
 如果处于wifi环境检测更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。
 
 ```
-EasyUpdate.silentUpdate(v.getContext(), UmengUpdatePlugin.PLUGIN_ID);
+EasyUpdate.silentUpdate(v.getContext());
 ```
 
 ### 检查更新
@@ -43,7 +46,7 @@ EasyUpdate.setUpdateCheckDuration(毫秒数);
 
 ### 友盟
 
-http://www.umeng.com/
+[http://www.umeng.com/](http://www.umeng.com/)
 
 #### 配置
 
@@ -59,7 +62,7 @@ http://www.umeng.com/
 如果开发者已经有了最新的APK版本，只要上传到友盟网站，同时客户端版本的版本号（VersionName和VersionCode）小于上传的最新版本，客户端就会有更新提示。
 
 ### 百度
-http://app.baidu.com/
+[http://app.baidu.com/](http://app.baidu.com/)
 
 #### 配置
 

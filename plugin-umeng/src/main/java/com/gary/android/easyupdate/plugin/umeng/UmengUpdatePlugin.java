@@ -14,11 +14,9 @@ import com.umeng.update.UpdateResponse;
  */
 public class UmengUpdatePlugin implements EasyUpdatePlugin {
 
-    public static final String PLUGIN_ID = "Umeng";
-
     @Override
     public String getPluginId() {
-        return PLUGIN_ID;
+        return "Umeng";
     }
 
     @Override
