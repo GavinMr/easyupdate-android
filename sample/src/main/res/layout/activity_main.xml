@@ -9,9 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <Button
-        android:id="@+id/umeng"
+        android:id="@+id/umeng_silentupdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="友盟静默更新"/>
+
+    <Button
+        android:id="@+id/umeng_checkupdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="友盟检查更新"/>
 
 </RelativeLayout>

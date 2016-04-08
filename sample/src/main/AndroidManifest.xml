@@ -12,7 +12,15 @@
             android:name="UMENG_CHANNEL"
             android:value="site" />
 
-        <activity android:name="com.gary.android.easyupdate.MainActivity"></activity>
+        <activity
+            android:name="com.gary.android.easyupdate.MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

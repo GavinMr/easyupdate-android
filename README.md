@@ -11,6 +11,7 @@ EasyUpdate 提供多个检查更新插件，开发者可根据本身需求进行
 EasyUpdateConfig config = EasyUpdateConfig.newBuilder()
                                         .setDeltaUpdate(false) // 是否开启增量更新，默认false
                                         .setUpdateOnlyWifi(true) // 是否仅在WIFI环境下检查更新, 默认true
+                                        .setUpdateAutoPopup(true) // 是否检查更新自动弹出更新对话框
                                         .setUpdatePlugin(new UmengUpdatePlugin()) // 设置检查更新使用的插件，必须设置
                                         .build();
 EasyUpdate.initialize(config);
@@ -21,26 +22,35 @@ EasyUpdate.initialize(config);
 如果处于wifi环境检测更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。
 
 ```
-EasyUpdate.silentUpdate(v.getContext());
+EasyUpdate.silentUpdate(Context);
 ```
 
 ### 检查更新
-检查是否有新版本，会判断上次检查更新时间，未到设定日期不会联网检查。
+检查是否有新版本。
 
 ```
+EasyUpdate.checkUpdate(Context, EasyUpdateListener)
+```
 
+### 强制检查更新
+检查是否有新版本，强制立即联网检查更新。该方法不会检查UpdateOnlyWifi设置。
+
+```
+EasyUpdate.checkUpdateForce(Context, EasyUpdateListener)
+```
+
+### 弹出更新提示对话框
+弹出更新提示对话框，配合EasyUpdateConfig.setUpdateAutoPopup(false)在更新回调中使用，调用该方法弹出更新提醒对话框，提醒用户有更新。
+如果 setUpdateAutoPopup 设置为 true，请不要调用该方法，会导致显示两次提醒。
+
+```
+EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回调中的updateInfo对象
 ```
 
 ### 自定义功能
 #### 自定义检查更新插件
 实现 com.gary.android.easyupdate.EasyUpdatePlugin 接口，注册到EasyUpdate即可。
 
-### 设置检查更新间隔
-由于不需要用户短时间内每次进入应用都检查更新，可以设置检查更新间隔时间，在间隔时间内不检查更新。默认24小时。
-
-```
-EasyUpdate.setUpdateCheckDuration(毫秒数);
-```
 
 ## 配置更新插件
 

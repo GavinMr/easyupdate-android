@@ -5,5 +5,5 @@ package com.gary.android.easyupdate;
  */
 public interface EasyUpdateListener {
 
-    public void onUpdate(EasyUpdateStatus status);
+    public void onUpdate(EasyUpdateStatus status, Object updateInfo);
 }

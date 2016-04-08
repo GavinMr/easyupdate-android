@@ -56,7 +56,7 @@ public final class EasyUpdate {
             checkUpdateForce(context, listener);
         } else {
             if (listener != null) {
-                listener.onUpdate(EasyUpdateStatus.NoUpdate);
+                listener.onUpdate(EasyUpdateStatus.NoUpdate, null);
             }
         }
     }
@@ -74,6 +74,26 @@ public final class EasyUpdate {
             throw new IllegalArgumentException("Context is null");
         }
 
-        config.getUpdatePlugin().checkUpdate(context, listener);
+        config.getUpdatePlugin().checkUpdate(context, listener, config);
     }
+
+    /**
+     * 弹出更新提示对话框，配合EasyUpdateConfig.setUpdateAutoPopup(false)在更新回调中使用，调用该方法弹出更新提醒对话框，提醒用户有更新。
+     * @param context
+     * @param updateInfo
+     */
+    public static void showUpdateDialog(Context context, Object updateInfo) {
+        if (config == null) {
+            throw new IllegalArgumentException("EasyUpdate was not initialized!");
+        }
+        if (context == null) {
+            throw new IllegalArgumentException("Context is null");
+        }
+        if (updateInfo == null) {
+            throw new IllegalArgumentException("UpdateInfo is null");
+        }
+
+        config.getUpdatePlugin().showUpdateDialog(context, updateInfo);
+    }
+
 }
