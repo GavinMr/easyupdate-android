@@ -13,7 +13,6 @@ public final class EasyUpdate {
 
     private static EasyUpdateConfig config;
 
-
     public static void initialize(EasyUpdateConfig config) {
         if (config == null) {
             throw new IllegalArgumentException("EasyUpdateConfig is null");
@@ -52,6 +51,13 @@ public final class EasyUpdate {
             throw new IllegalArgumentException("Context is null");
         }
 
+        if (Util.isNetworkAvailable(context)) {
+            if (listener != null) {
+                listener.onUpdate(EasyUpdateStatus.Error, null);
+            }
+            return;
+        }
+
         if (!config.isUpdateOnlyWifi() || Util.isWifiNetworkAvailable(context)) {
             checkUpdateForce(context, listener);
         } else {
@@ -72,6 +78,13 @@ public final class EasyUpdate {
         }
         if (context == null) {
             throw new IllegalArgumentException("Context is null");
+        }
+
+        if (Util.isNetworkAvailable(context)) {
+            if (listener != null) {
+                listener.onUpdate(EasyUpdateStatus.Error, null);
+            }
+            return;
         }
 
         config.getUpdatePlugin().checkUpdate(context, listener, config);
