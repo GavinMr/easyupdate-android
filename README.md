@@ -58,6 +58,8 @@ EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回�
 
 [http://www.umeng.com/](http://www.umeng.com/)
 
+可根据渠道上传对应的APK
+
 #### 配置
 
 添加APPKEY和渠道到&lt;application&gt;标签下：（如果已经集成了统计SDK等友盟其他服务，不需要重复添加APPKEY）
@@ -71,12 +73,24 @@ EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回�
 
 如果开发者已经有了最新的APK版本，只要上传到友盟网站，同时客户端版本的版本号（VersionName和VersionCode）小于上传的最新版本，客户端就会有更新提示。
 
+#### 友盟更新SDK版本
+v2.7.0
+
 ### 百度
 [http://app.baidu.com/](http://app.baidu.com/)
 
+只要在百度手机助手发布新版，用户都可以收到新版发布提醒。用户更新会增加百度手机助手的下载量。百度手机助手强制集成该SDK，否则无法通过审核。
+
 #### 配置
+添加APPKEY和APPID到&lt;application&gt;标签下：（如果已经集成了统计SDK等百度其他服务，不需要重复添加APPKEY和APPID）
 
+```
+<meta-data android:name="BDAPPID" android:value="YOUR APP ID "/>
+<meta-data android:name="BDAPPKEY" android:value="YOUR APP KEY"/>
+```
+#### 百度更新SDK版本
 
+v1.2.0
 
 ## License
 * [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

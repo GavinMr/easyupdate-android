@@ -2,7 +2,18 @@
     package="com.gary.android.easyupdate.plugin.baidu">
 
     <application>
-
+        <activity android:exported="false"
+            android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/bdp_update_dialog_style_fullscreen"/>
+        <receiver android:exported="false" android:name="com.baidu.autoupdatesdk.receiver.BDBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_UPDATE"/>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_DOWNLOAD_COMPLETE"/>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_AS"/>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_AS_DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
