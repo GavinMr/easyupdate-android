@@ -5,12 +5,12 @@
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5707583f67e58eddc2001d73" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="site" />
+
+        <!-- 友盟配置 -->
+        <meta-data android:name="UMENG_APPKEY" android:value="5707583f67e58eddc2001d73" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="site" />
+
+
 
         <activity
             android:name="com.gary.android.easyupdate.MainActivity"
