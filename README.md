@@ -73,7 +73,7 @@ EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回�
 
 如果开发者已经有了最新的APK版本，只要上传到友盟网站，同时客户端版本的版本号（VersionName和VersionCode）小于上传的最新版本，客户端就会有更新提示。
 
-#### 友盟更新SDK版本
+#### 友盟检查更新SDK版本
 v2.7.0
 
 ### 百度
@@ -88,7 +88,7 @@ v2.7.0
 <meta-data android:name="BDAPPID" android:value="YOUR APP ID "/>
 <meta-data android:name="BDAPPKEY" android:value="YOUR APP KEY"/>
 ```
-#### 百度更新SDK版本
+#### 百度检查更新SDK版本
 
 v1.2.0
 

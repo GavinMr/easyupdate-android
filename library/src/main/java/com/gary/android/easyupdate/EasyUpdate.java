@@ -51,7 +51,7 @@ public final class EasyUpdate {
             throw new IllegalArgumentException("Context is null");
         }
 
-        if (Util.isNetworkAvailable(context)) {
+        if (!Util.isNetworkAvailable(context)) {
             if (listener != null) {
                 listener.onUpdate(EasyUpdateStatus.Error, null);
             }
@@ -80,7 +80,7 @@ public final class EasyUpdate {
             throw new IllegalArgumentException("Context is null");
         }
 
-        if (Util.isNetworkAvailable(context)) {
+        if (!Util.isNetworkAvailable(context)) {
             if (listener != null) {
                 listener.onUpdate(EasyUpdateStatus.Error, null);
             }
