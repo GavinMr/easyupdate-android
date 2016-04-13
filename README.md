@@ -57,6 +57,7 @@ allprojects {
 dependencies {	
 	compile 'com.github.wanggang01:easyupdate:1.0.3'
 	compile 'com.github.wanggang01:easyupdate-plugin-baidu:1.0.1@aar'
+	compile 'com.github.wanggang01:easyupdate-plugin-xiaomi:1.0.1@aar'
 }
 ```
 检查更新插件可以按需配置，不适用可以不配置，减少APK大小。
