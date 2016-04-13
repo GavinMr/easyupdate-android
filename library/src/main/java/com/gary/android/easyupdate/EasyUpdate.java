@@ -59,35 +59,12 @@ public final class EasyUpdate {
         }
 
         if (!config.isUpdateOnlyWifi() || Util.isWifiNetworkAvailable(context)) {
-            checkUpdateForce(context, listener);
+            config.getUpdatePlugin().checkUpdate(context, listener, config);
         } else {
             if (listener != null) {
                 listener.onUpdate(EasyUpdateStatus.NoUpdate, null);
             }
         }
-    }
-
-    /**
-     * 检查是否有新版本，强制立即联网检查更新。该方法不会检查UpdateOnlyWifi设置。
-     * @param context
-     * @param listener
-     */
-    public static void checkUpdateForce(final Context context, final EasyUpdateListener listener) {
-        if (config == null) {
-            throw new IllegalArgumentException("EasyUpdate was not initialized!");
-        }
-        if (context == null) {
-            throw new IllegalArgumentException("Context is null");
-        }
-
-        if (!Util.isNetworkAvailable(context)) {
-            if (listener != null) {
-                listener.onUpdate(EasyUpdateStatus.Error, null);
-            }
-            return;
-        }
-
-        config.getUpdatePlugin().checkUpdate(context, listener, config);
     }
 
     /**
