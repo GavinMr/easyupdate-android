@@ -32,13 +32,6 @@ EasyUpdate.silentUpdate(Context);
 EasyUpdate.checkUpdate(Context, EasyUpdateListener)
 ```
 
-### 强制检查更新
-检查是否有新版本，强制立即联网检查更新。该方法不会检查UpdateOnlyWifi设置。
-
-```
-EasyUpdate.checkUpdateForce(Context, EasyUpdateListener)
-```
-
 ### 弹出更新提示对话框
 弹出更新提示对话框，配合EasyUpdateConfig.setUpdateAutoPopup(false)在更新回调中使用，调用该方法弹出更新提醒对话框，提醒用户有更新。
 如果 setUpdateAutoPopup 设置为 true，请不要调用该方法，会导致显示两次提醒。
@@ -62,7 +55,7 @@ allprojects {
 }
 
 dependencies {	
-	compile 'com.github.wanggang01:easyupdate:1.0.2'
+	compile 'com.github.wanggang01:easyupdate:1.0.3'
 	compile 'com.github.wanggang01:easyupdate-plugin-baidu:1.0.1@aar'
 }
 ```
