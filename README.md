@@ -1,7 +1,5 @@
 # EasyUpdate
-EasyUpdate（Android）帮助开发者将移动终端上的应用升级到最新版本，是进行存量用户更新的有效手段。
-
-EasyUpdate 提供多个检查更新插件，开发者可根据本身需求进行集成。不同的检查更新插件会对不同的渠道提高新增激活，更新激活（应用市场的应用下载量）。
+可快速集成应用检查更新功能，支持百度、小米应用检查更新。提供多个检查更新插件，开发者可根据本身需求进行集成。
 
 ## 开始使用EasyUpdate
 
@@ -20,7 +18,7 @@ EasyUpdate.initialize(new EasyUpdateConfig.Builder()
 ```
 
 ### 静默更新
-如果处于wifi环境检测更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。
+如果处于wifi环境检查更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。
 
 ```
 EasyUpdate.silentUpdate(Context);
@@ -45,30 +43,54 @@ EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回�
 #### 自定义检查更新插件
 实现 com.github.garymr.android.easyupdate.EasyUpdatePlugin 接口，注册到EasyUpdate即可。
 
-## Android Studio 或者 Gradle
+## 下载
+
+### Gradle
 
 ```
-allprojects {
-	repositories {
-		...
-		maven { url "https://jitpack.io" }
-	}
-}
+dependencies {
+	compile 'com.github.garymr.android:easyupdate:1.0.0'
 
-dependencies {	
-	compile 'com.github.wanggang01:easyupdate:1.0.3'
-	compile 'com.github.wanggang01:easyupdate-plugin-baidu:1.0.1@aar'
-	compile 'com.github.wanggang01:easyupdate-plugin-xiaomi:1.0.1@aar'
+    // 百度检查更新，不使用可以不引入
+	compile 'com.github.garymr.android:easyupdate-baidu:1.0.0'
+
+	// 小米检查更新，不使用可以不引入
+    compile 'com.github.garymr.android:easyupdate-xiaomi:1.0.0'
 }
 ```
-检查更新插件可以按需配置，不适用可以不配置，减少APK大小。
+
+### Maven
+
+```
+<dependency>
+  <groupId>com.github.garymr.android</groupId>
+  <artifactId>easyupdate</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<!-- 百度检查更新，不使用可以不引入 -->
+<dependency>
+  <groupId>com.github.garymr.android</groupId>
+  <artifactId>easyupdate-baidu</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<!-- 小米检查更新，不使用可以不引入 -->
+<dependency>
+  <groupId>com.github.garymr.android</groupId>
+  <artifactId>easyupdate-xiaomi</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+检查更新插件可以按需配置，不使用可以不配置，减少APK大小。
 
 ## 配置更新插件
 
 ### 百度
 [http://app.baidu.com/](http://app.baidu.com/)
 
-只要在百度手机助手发布新版，用户都可以收到新版发布提醒。用户更新会增加百度手机助手的下载量。百度手机助手强制集成该SDK，否则无法通过审核。
+只要在百度手机助手发布新版，用户都可以收到新版发布提醒。百度手机助手强制集成该SDK，否则无法通过审核。
 
 #### 配置
 添加APPKEY和APPID到&lt;application&gt;标签下：（如果已经集成了统计SDK等百度其他服务，不需要重复添加APPKEY和APPID）
@@ -86,22 +108,8 @@ v1.2.0
 
 #### 配置
 
-```
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="com.xiaomi.market.sdk.UPDATE" />
+不需要额外配置
 
-<application>
-    <receiver android:name="com.xiaomi.market.sdk.DownloadCompleteReceiver" >
-		<intent-filter>
-			<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-		</intent-filter>
-	</receiver>
-</application>
-```
 
 #### 小米检查更新SDK版本
 
