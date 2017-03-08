@@ -1,1 +1,4 @@
-include ':library'
+include ':easyupdate'
+include ':easyupdate-sample'
+include ':easyupdate-baidu'
+include ':easyupdate-xiaomi'

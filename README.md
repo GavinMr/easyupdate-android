@@ -8,13 +8,14 @@ EasyUpdate 提供多个检查更新插件，开发者可根据本身需求进行
 在 Application 初始化时，或在应用调用 检查更新 之前，进行初始化：
 
 ```
-EasyUpdateConfig config = EasyUpdateConfig.newBuilder()
-                                        .setDeltaUpdate(false) // 是否开启增量更新，默认false
-                                        .setUpdateOnlyWifi(true) // 是否仅在WIFI环境下检查更新, 默认true
-                                        .setUpdateAutoPopup(true) // 是否检查更新自动弹出更新对话框
-                                        .setUpdatePlugin(new UmengUpdatePlugin()) // 设置检查更新使用的插件，必须设置
-                                        .build();
-EasyUpdate.initialize(config);
+EasyUpdate.initialize(new EasyUpdateConfig.Builder()
+                    .setDeltaUpdate(false) // 是否开启增量更新，默认false
+                    .setUpdateOnlyWifi(true) // 是否仅在WIFI环境下检查更新，默认true
+                    .setUpdateAutoPopup(true) // 是否检查更新自动弹出更新对话框，默认true
+                    .setUpdatePlugin(new XiaomiUpdatePlugin()) // 设置检查更新使用的插件，必须设置
+//                    .setUpdatePlugin(new BaiduUpdatePlugin()) // 可根据渠道设置不同的检查更新
+                    .create()
+        );
 
 ```
 
@@ -42,7 +43,7 @@ EasyUpdate.showUpdateDialog(Context, Object) // Object为EasyUpdateListener回�
 
 ### 自定义功能
 #### 自定义检查更新插件
-实现 com.gary.android.easyupdate.EasyUpdatePlugin 接口，注册到EasyUpdate即可。
+实现 com.github.garymr.android.easyupdate.EasyUpdatePlugin 接口，注册到EasyUpdate即可。
 
 ## Android Studio 或者 Gradle
 
@@ -105,28 +106,6 @@ v1.2.0
 #### 小米检查更新SDK版本
 
 v0.7
-
-### 友盟（友盟已不提供检查更新服务）
-
-[http://www.umeng.com/](http://www.umeng.com/)
-
-可根据渠道上传对应的APK
-
-#### 配置
-
-添加APPKEY和渠道到&lt;application&gt;标签下：（如果已经集成了统计SDK等友盟其他服务，不需要重复添加APPKEY）
-
-```
-<meta-data android:value="YOUR APP KEY" android:name="UMENG_APPKEY"/>
-<meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
-```
-
-#### 上传最新的APK
-
-如果开发者已经有了最新的APK版本，只要上传到友盟网站，同时客户端版本的版本号（VersionName和VersionCode）小于上传的最新版本，客户端就会有更新提示。
-
-#### 友盟检查更新SDK版本
-v2.7.0
 
 
 ## License

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.garymr.android.easyupdate.sample">
+
+    <application
+        android:name=".SampleApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--百度渠道需要设置APPID和APPKEY（如果已经集成了统计SDK等百度其他服务，不需要重复添加APPKEY和APPID） -->
+        <meta-data android:name="BDAPPID" android:value="8000000" />
+        <meta-data android:name="BDAPPKEY" android:value="TtFrxHXKtMSGPkfQfAdTnNrNhcElkwop" />
+
+        <activity android:name=".SampleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
