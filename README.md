@@ -55,7 +55,7 @@ dependencies {
 	compile 'com.github.garymr.android:easyupdate-baidu:1.0.0'
 
 	// 小米检查更新，不使用可以不引入
-    compile 'com.github.garymr.android:easyupdate-xiaomi:1.0.0'
+    compile 'com.github.garymr.android:easyupdate-xiaomi:1.1.0'
 }
 ```
 
@@ -79,7 +79,7 @@ dependencies {
 <dependency>
   <groupId>com.github.garymr.android</groupId>
   <artifactId>easyupdate-xiaomi</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
@@ -108,13 +108,25 @@ v1.2.0
 
 #### 配置
 
-不需要额外配置
+```
+<!-- authorities需要替换成自己的包名 -->
+<provider android:name="android.support.v4.content.FileProvider"
+    android:authorities="your_packagename.selfupdate.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true" >
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" />
+</provider>
+```
 
 
 #### 小米检查更新SDK版本
 
-v0.7
-
+| easyupdate版本 | 小米SDK版本 |
+| ------------- |:---------:|
+| 1.0.0         | v0.7      |
+| 1.1.0         | v2.6      |
 
 ## License
 * [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
