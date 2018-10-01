@@ -55,7 +55,7 @@ dependencies {
 	compile 'com.github.garymr.android:easyupdate-baidu:1.0.0'
 
 	// 小米检查更新，不使用可以不引入
-    compile 'com.github.garymr.android:easyupdate-xiaomi:1.1.0'
+    compile 'com.github.garymr.android:easyupdate-xiaomi:1.2.0'
 }
 ```
 
