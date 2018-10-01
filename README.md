@@ -79,7 +79,7 @@ dependencies {
 <dependency>
   <groupId>com.github.garymr.android</groupId>
   <artifactId>easyupdate-xiaomi</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -127,6 +127,7 @@ v1.2.0
 | ------------- |:---------:|
 | 1.0.0         | v0.7      |
 | 1.1.0         | v2.6      |
+| 1.2.0         | v4.0.3      |
 
 ## License
 * [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

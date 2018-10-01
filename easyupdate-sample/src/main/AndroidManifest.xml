@@ -12,8 +12,12 @@
         android:theme="@style/AppTheme">
 
         <!--百度渠道需要设置APPID和APPKEY（如果已经集成了统计SDK等百度其他服务，不需要重复添加APPKEY和APPID） -->
-        <meta-data android:name="BDAPPID" android:value="8000000" />
-        <meta-data android:name="BDAPPKEY" android:value="TtFrxHXKtMSGPkfQfAdTnNrNhcElkwop" />
+        <meta-data
+            android:name="BDAPPID"
+            android:value="8000000" />
+        <meta-data
+            android:name="BDAPPKEY"
+            android:value="TtFrxHXKtMSGPkfQfAdTnNrNhcElkwop" />
 
         <activity android:name=".SampleActivity">
             <intent-filter>
@@ -23,13 +27,14 @@
         </activity>
 
         <!-- 小米渠道需要添加, android:authorities需要更换成your_packagename.selfupdate.fileprovider -->
-        <provider android:name="android.support.v4.content.FileProvider"
+        <provider
+            android:name="android.support.v4.content.FileProvider"
             android:authorities="com.github.garymr.android.easyupdate.sample.selfupdate.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/xiaomi_update_sdk_file_paths" />
         </provider>
     </application>
 
