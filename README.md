@@ -107,16 +107,15 @@ v1.2.0
 [http://dev.xiaomi.com/](http://dev.xiaomi.com/)
 
 #### 配置
-
 ```
-<!-- authorities需要替换成自己的包名 -->
-<provider android:name="android.support.v4.content.FileProvider"
-    android:authorities="your_packagename.selfupdate.fileprovider"
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="your_package_name.selfupdate.fileprovider" //请将your_package_name替换成您应用的包名.
     android:exported="false"
-    android:grantUriPermissions="true" >
+    android:grantUriPermissions="true">
     <meta-data
         android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/file_paths" />
+        android:resource="@xml/xiaomi_update_sdk_file_paths" />
 </provider>
 ```
 
